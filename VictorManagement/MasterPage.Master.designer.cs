@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VictorManagement {
+namespace KibistaManagement {
     
     
     public partial class MasterPage {

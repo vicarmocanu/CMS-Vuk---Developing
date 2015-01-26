@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using VictorManagement.Model;
+using KibistaManagement.Model;
 
-namespace VictorManagement.Controller
+namespace KibistaManagement.Controller
 {
     public class UserController
     {

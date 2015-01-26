@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="kibistaCMS" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=THERAK;Initial Catalog=kibistaCMS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="kibistaCMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Events" Member="Events">
+    <Type Name="Event">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descrip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="startTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="endTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="location" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Event_EventTeam" Member="EventTeams" ThisKey="id" OtherKey="eventId" Type="EventTeam" />
+      <Association Name="Event_Task" Member="Tasks" ThisKey="id" OtherKey="eventId" Type="Task" />
+      <Association Name="Event_UserChk" Member="UserChks" ThisKey="id" OtherKey="eventId" Type="UserChk" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EventTeam" Member="EventTeams">
+    <Type Name="EventTeam">
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="eventId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Event_EventTeam" Member="Event" ThisKey="eventId" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="User_EventTeam" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tasks" Member="Tasks">
+    <Type Name="Task">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="eventId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descrip" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Task_UserChk" Member="UserChks" ThisKey="id" OtherKey="taskId" Type="UserChk" />
+      <Association Name="Event_Task" Member="Event" ThisKey="eventId" OtherKey="id" Type="Event" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserChk" Member="UserChks">
+    <Type Name="UserChk">
+      <Column Name="eventId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="taskId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="userDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="userchk" Member="userchk1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Event_UserChk" Member="Event" ThisKey="eventId" OtherKey="id" Type="Event" IsForeignKey="true" />
+      <Association Name="Task_UserChk" Member="Task" ThisKey="taskId" OtherKey="id" Type="Task" IsForeignKey="true" />
+      <Association Name="User_UserChk" Member="User" ThisKey="userId" OtherKey="id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="pass" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="types" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phoneNr" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_EventTeam" Member="EventTeams" ThisKey="id" OtherKey="userId" Type="EventTeam" />
+      <Association Name="User_UserChk" Member="UserChks" ThisKey="id" OtherKey="userId" Type="UserChk" />
+    </Type>
+  </Table>
+</Database>

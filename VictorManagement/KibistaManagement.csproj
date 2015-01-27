@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EventController.cs" />
+    <Compile Include="Controller\EventTeamController.cs" />
     <Compile Include="Controller\TasksController.cs" />
+    <Compile Include="Controller\UserChkController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -85,6 +87,9 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -95,6 +100,10 @@
   <ItemGroup>
     <Folder Include="Script\" />
     <Folder Include="Style\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Employee\" />
+    <Folder Include="Views\LogIn\" />
+    <Folder Include="Views\Management\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

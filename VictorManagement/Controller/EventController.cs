@@ -59,5 +59,20 @@ namespace KibistaManagement.Controller
                 catch (NullReferenceException) { }
             }
         }
+
+        public List<Event> getWeekEvents(DateTime startTime)
+        {
+            List<Event> weekEvents = new List<Event>();
+
+            using (DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Events.Where(ev => ev.startTime >= DateTime.Now && ev.startTime <= DateTime.Now.AddDays(+7)).ToList();
+
+                weekEvents = query;
+
+            }
+
+            return weekEvents;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace KibistaManagement.Controller
         }
 
         //get the customer check for a particular event and task
-        public UserChk getCustomerChk(int eventId, int taskId,)
+        public UserChk getCustomerChk(int eventId, int taskId)
         {
             UserChk usrCheck1 = new UserChk();
 

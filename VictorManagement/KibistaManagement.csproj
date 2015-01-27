@@ -61,6 +61,7 @@
     <Content Include="img\background.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\nav bar.png" />
+    <Content Include="Style\StyleSheet.css" />
     <Content Include="Views\Management\Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -124,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Script\" />
-    <Folder Include="Style\" />
     <Folder Include="Views\LogIn\" />
   </ItemGroup>
   <ItemGroup>

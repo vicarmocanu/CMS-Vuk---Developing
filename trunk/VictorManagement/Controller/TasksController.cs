@@ -65,7 +65,7 @@ namespace KibistaManagement.Controller
             }
         }
 
-        // #nodelete
+        // #delete
         public void deleteTaskById(int id)
         {
             Task task = new Task();

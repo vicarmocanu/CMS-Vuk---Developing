@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Model\EventStringConversion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Customer\CustomerMaster.Master.cs">
       <DependentUpon>CustomerMaster.Master</DependentUpon>

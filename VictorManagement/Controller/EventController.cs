@@ -74,5 +74,29 @@ namespace KibistaManagement.Controller
 
             return weekEvents;
         }
+
+        public List<EventStringConversion> repeaterListGeneration()
+        {
+            List<EventStringConversion> stringEventsList = new List<EventStringConversion>();
+
+            List<Event> weekEvents = new List<Event>();
+            weekEvents = getWeekEvents(DateTime.Now);
+
+            foreach(Event ev in weekEvents)
+            {
+                EventStringConversion eventInString = new EventStringConversion();
+
+                eventInString.ID = Convert.ToString(ev.id);
+                eventInString.Name = Convert.ToString(ev.name);
+                eventInString.StartTime = Convert.ToString(ev.startTime);
+                eventInString.EndTime = Convert.ToString(ev.endTime);
+                eventInString.Descrip = Convert.ToString(ev.descrip);
+                eventInString.Location = Convert.ToString(ev.location);
+
+                stringEventsList.Add(eventInString);
+            }
+
+            return stringEventsList;
+        }
     }
 }

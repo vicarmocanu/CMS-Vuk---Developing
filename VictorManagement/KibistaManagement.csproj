@@ -58,6 +58,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\background.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\nav bar.png" />
     <Content Include="Views\Management\Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -9,8 +9,8 @@ namespace KibistaManagement.Controller
     public class EventController
     {
         public void insertEvent(String name, String descrip, DateTime startTime, DateTime endTime, String location)
-        { 
-            using(DataClassesDataContext db = new DataClassesDataContext())
+        {
+            using (DataClassesDataContext db = new DataClassesDataContext())
             {
                 Event eve = new Event();
 
@@ -22,10 +22,10 @@ namespace KibistaManagement.Controller
 
                 db.Events.InsertOnSubmit(eve);
                 db.SubmitChanges();
-                
+
             }
         }
-        
+
         public Event getEvent(String name)
         {
             Event eve = new Event();
@@ -56,7 +56,7 @@ namespace KibistaManagement.Controller
                         db.SubmitChanges();
                     }
                 }
-                catch(NullReferenceException){}
+                catch (NullReferenceException) { }
             }
         }
     }

@@ -61,6 +61,34 @@ namespace KibistaManagement.Controller
             }
         }
 
+        public User getUserByEmail(String email)
+        {
+            User usr = new User();
+
+            using (DataClassesDataContext db = new DataClassesDataContext())
+            {
+                usr = db.Users.SingleOrDefault(us => us.email.Equals(email));
+            }
+
+
+            return usr;
+
+        }
+
+        public String getUserTypes(User user)
+        {
+            String type = "";
+
+            if (user != null)
+            {
+                type = user.types;
+
+            }
+            return type;
+        }
+
+        
+
         // #nodelete
     }
 }

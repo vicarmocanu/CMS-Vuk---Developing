@@ -62,7 +62,10 @@
     <Content Include="img\logo.png" />
     <Content Include="img\nav bar.png" />
     <Content Include="Style\StyleSheet.css" />
-    <Content Include="Views\Management\Home.aspx" />
+    <Content Include="Views\Manager\Home.aspx" />
+    <Content Include="Views\Manager\Management.aspx" />
+    <Content Include="Views\Manager\User.aspx" />
+    <Content Include="Views\Manager\Verify.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,19 +95,40 @@
     <Compile Include="Views\Employee\EmployeeMaster.Master.designer.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="Views\Management\Home.aspx.cs">
+    <Compile Include="Views\Manager\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Management\Home.aspx.designer.cs">
+    <Compile Include="Views\Manager\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Management\ManagementMaster.Master.cs">
+    <Compile Include="Views\Manager\Management.aspx.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\Management.aspx.designer.cs">
+      <DependentUpon>Management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ManagementMaster.Master.cs">
       <DependentUpon>ManagementMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Management\ManagementMaster.Master.designer.cs">
+    <Compile Include="Views\Manager\ManagementMaster.Master.designer.cs">
       <DependentUpon>ManagementMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -113,7 +137,7 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Views\Management\ManagementMaster.Master" />
+    <Content Include="Views\Manager\ManagementMaster.Master" />
     <Content Include="Views\Employee\EmployeeMaster.Master" />
     <Content Include="Views\Customer\CustomerMaster.Master" />
     <None Include="Web.Debug.config">

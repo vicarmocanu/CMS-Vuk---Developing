@@ -29,18 +29,18 @@ namespace KibistaManagement.Views.LogIn
             if (usr != null)
             {
                 typeValue = usrCtr.getUserTypes(usr);
-                if (typeValue == "Manager")
+                if (typeValue.Equals("Manager") && usr.pass.Equals(txtPassword.Text.ToString()))
                 {
-                    Server.Transfer("~/Views/LogIn/Error.aspx");
+                    Response.Redirect("~/Views/Manager/Home.aspx");
                 }
                 else
                 {
-                    Server.Transfer("~/Views/LogIn/Error.aspx");
+                    Response.Redirect("~/Views/LogIn/Error.aspx");
                 }
             }
             else
             {
-                Server.Transfer("~/Views/LogIn/Error.aspx");
+                Response.Redirect("~/Views/LogIn/Error.aspx");
             }
         }
     }

@@ -37,10 +37,12 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div class="row" id="mainContainer">
+        <div class="col-md-10 col-md-offset-1" id="middleContainer">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
+        </div>
     </div>
     </form>
 </body>

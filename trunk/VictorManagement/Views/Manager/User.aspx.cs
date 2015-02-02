@@ -20,14 +20,15 @@ namespace KibistaManagement.Views.Management
 
         public void ReapeaterDataBinding()
         {
-            List<UserStringConversion> userList = new List<UserStringConversion>();
+  
+            List<UserStringConversion> userLists = new List<UserStringConversion>();
 
             try
             {
-                userList = userCtr.repeaterListGeneration();
+                userLists = userCtr.repeaterListGeneration();
 
-                this.UserList.DataSource = userList;
-                this.UserList.DataBind();
+                this.UserRepeater.DataSource = userLists;
+                this.UserRepeater.DataBind();
             }
             catch(NullReferenceException){}
         }

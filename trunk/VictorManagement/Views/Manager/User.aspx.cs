@@ -15,7 +15,10 @@ namespace KibistaManagement.Views.Management
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ReapeaterDataBinding();
+            if (!IsPostBack)
+            {
+                ReapeaterDataBinding();
+            }
         }
 
         public void ReapeaterDataBinding()

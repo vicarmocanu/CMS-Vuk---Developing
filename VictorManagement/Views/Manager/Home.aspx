@@ -4,7 +4,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
-        <div class="col-md-7">
+
+        <!-- event repeater !-->
+        <div class="col-md-4">
             <asp:Repeater ID="EventList" runat="server" OnItemCommand="EventList_ItemCommand">
             <ItemTemplate>
                 <div id="managerHomeRepeater">
@@ -22,16 +24,14 @@
                     <br />
                     <b>Location: </b>
                     <asp:Label ID="EventLocation" runat="server" Text='<%# Eval("Location") %>'></asp:Label>
-                    <div class="row">
-                        <div class="col-md-1 col-md-offset-9">
-                            <asp:Button Text="Tasks" runat="server" id="taskButton" CommandName="ShowTasks" CommandArgument='<%# Eval("ID") %>'/>
-                        </div>
-                    </div>
+                    <br />
+                    <asp:Button Text="Tasks" runat="server" id="taskButton" CommandName="ShowTasks&Teams" CommandArgument='<%# Eval("ID") %>'/>                    
                 </div>
             </ItemTemplate>
             </asp:Repeater>
         </div>
 
+        <!-- event tasks repeater !-->
         <div class="col-md-4">
             <asp:Repeater ID="EventTaskList" runat="server">
             <ItemTemplate>
@@ -45,6 +45,25 @@
             </ItemTemplate>         
             </asp:Repeater>
         </div>
+
+        <!-- task team repeater !-->
+        <div class="col-md-4">
+            <asp:Repeater ID="EventTeamList" runat="server">
+                <ItemTemplate>
+                    <div id="managerHomeTeams">
+                        <b>Name: </b>
+                        <asp:Label ID="EmployeeName" runat="server" Text='<% #Eval("Name") %>'></asp:Label>
+                        <br />
+                        <b>Email: </b>
+                        <asp:Label ID="EmployeeEmail" runat="server" Text='<% #Eval("Email") %>'></asp:Label>
+                        <br />
+                        <b>Phone number: </b>
+                        <asp:Label ID="EmployeePhoneNumber" runat="server" Text='<% #Eval("PhoneNr") %>'></asp:Label>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+
     </div>
     
 </asp:Content>

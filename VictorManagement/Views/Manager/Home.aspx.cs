@@ -13,6 +13,7 @@ namespace KibistaManagement.Views.Management
     {
         private static EventController eventController = new EventController();
         private static TasksController taskController = new TasksController();
+        private static EventTeamController eventTeamController = new EventTeamController();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,19 +51,32 @@ namespace KibistaManagement.Views.Management
             catch (NullReferenceException) { }
         }
 
+        private void EventTeamRepeaterDataBinding(List<UserStringConversion> importedList2)
+        {
+            List<UserStringConversion> teamMembers = new List<UserStringConversion>();
+
+            try
+            {
+                teamMembers = importedList2;
+
+                this.EventTeamList.DataSource = teamMembers;
+                this.EventTeamList.DataBind();
+            }
+            catch (NullReferenceException) { }
+        }
+
         protected void EventList_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             switch(e.CommandName.ToString())
             {
-                case "ShowTasks":
+                case "ShowTasks&Teams":
                     int eventId = Convert.ToInt32(e.CommandArgument);
                     EventTaskRepeaterDataBinding(taskController.getWantedTasks(eventId));
+                    EventTeamRepeaterDataBinding(eventTeamController.getEventTeamMembers(eventId));
                     break;
                 default:
                     break;
             }
         }
-
-
     }
 }

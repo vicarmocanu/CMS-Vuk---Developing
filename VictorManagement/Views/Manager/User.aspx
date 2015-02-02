@@ -19,9 +19,15 @@
                         <br />
                         <b>Phone Number:</b>
                         <asp:Label ID="UserPhoneNumber" runat="server" Text='<%# Eval("PhoneNr") %>'></asp:Label>
+                        <br />
+                        <br />
+                        <b></b>
+                        <asp:Button ID="updateUser" Text="Update User" runat="server" />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+            <b>Create user:</b>
+            <asp:Button Text="Create" runat="server" ID="createButton" OnClick="createButton_Click"/>
         </div>
     </div>
 </asp:Content>

@@ -64,6 +64,7 @@
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Views\LogIn\Error.aspx" />
     <Content Include="Views\LogIn\LogIn.aspx" />
+    <Content Include="Views\Manager\CreateUser.aspx" />
     <Content Include="Views\Manager\Home.aspx" />
     <Content Include="Views\Manager\Management.aspx" />
     <Content Include="Views\Manager\User.aspx" />
@@ -112,6 +113,13 @@
     </Compile>
     <Compile Include="Views\LogIn\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

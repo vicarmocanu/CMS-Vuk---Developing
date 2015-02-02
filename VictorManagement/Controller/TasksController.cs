@@ -84,5 +84,41 @@ namespace KibistaManagement.Controller
             }
         }
 
+        public List<Task> getEventTasks(int eventId)
+        {
+            List<Task> eventTasks = new List<Task>();
+
+            using(DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Tasks.Where(tsk => tsk.eventId == eventId).ToList();
+
+                eventTasks = query;
+            }
+
+            return eventTasks;
+        }
+
+        public List<TaskStringConversion> getWantedTasks(int eventId)
+        {
+            List<TaskStringConversion> stringTaskList = new List<TaskStringConversion>();
+
+            List<Task> eventTasks = new List<Task>();
+            eventTasks = getEventTasks(eventId);
+
+            foreach (Task tsk in eventTasks)
+            {
+                TaskStringConversion taskInString = new TaskStringConversion();
+
+                taskInString.Id = Convert.ToString(tsk.id);
+                taskInString.Name = Convert.ToString(tsk.name);
+                taskInString.EventId = Convert.ToString(tsk.eventId);
+                taskInString.Descrip = Convert.ToString(tsk.descrip);
+
+                stringTaskList.Add(taskInString);
+            }
+
+            return stringTaskList;
+        }
+
     }
 }

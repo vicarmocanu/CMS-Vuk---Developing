@@ -12,13 +12,17 @@ namespace KibistaManagement.Views.Management
     public partial class Home : System.Web.UI.Page
     {
         private static EventController eventController = new EventController();
+        private static TasksController taskController = new TasksController();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            RepeaterDataBinding();
+            if (!IsPostBack)
+            {
+                WeekEventRepeaterDataBinding();
+            }
         }
 
-        public void RepeaterDataBinding()
+        private void WeekEventRepeaterDataBinding()
         {
             List<EventStringConversion> eventList = new List<EventStringConversion>();
 
@@ -31,5 +35,34 @@ namespace KibistaManagement.Views.Management
             }
             catch (NullReferenceException) { }
         }
+
+        private void EventTaskRepeaterDataBinding(List<TaskStringConversion> importedList)
+        {
+            List<TaskStringConversion> eventTaskList = new List<TaskStringConversion>();
+
+            try
+            {
+                eventTaskList = importedList;
+
+                this.EventTaskList.DataSource = eventTaskList;
+                this.EventTaskList.DataBind();
+            }
+            catch (NullReferenceException) { }
+        }
+
+        protected void EventList_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            switch(e.CommandName.ToString())
+            {
+                case "ShowTasks":
+                    int eventId = Convert.ToInt32(e.CommandArgument);
+                    EventTaskRepeaterDataBinding(taskController.getWantedTasks(eventId));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
     }
 }

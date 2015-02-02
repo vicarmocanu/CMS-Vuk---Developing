@@ -35,5 +35,10 @@ namespace KibistaManagement.Views.Management
             }
             catch(NullReferenceException){}
         }
+
+        protected void createButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/Manager/CreateUser.aspx");
+        }
     }
 }

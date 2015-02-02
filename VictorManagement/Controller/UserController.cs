@@ -92,6 +92,12 @@ namespace KibistaManagement.Controller
             List<UserStringConversion> stringUserList = new List<UserStringConversion>();
 
             List<User> users = new List<User>();
+
+            using (DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Users.Where(usr => usr.id >= 0).ToList();
+                users = query;
+            }
             
             foreach (User us in users)
             {

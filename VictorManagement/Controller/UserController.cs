@@ -87,6 +87,29 @@ namespace KibistaManagement.Controller
             return type;
         }
 
+        public List<UserStringConversion> repeaterListGeneration()
+        {
+            List<UserStringConversion> stringUserList = new List<UserStringConversion>();
+
+            List<User> users = new List<User>();
+            
+            foreach (User us in users)
+            {
+                UserStringConversion usersInString = new UserStringConversion();
+
+                usersInString.Id = Convert.ToString(us.id);
+                usersInString.Name = Convert.ToString(us.name);
+                usersInString.Pass = Convert.ToString(us.pass);
+                usersInString.PhoneNr = Convert.ToString(us.phoneNr);
+                usersInString.Type = Convert.ToString(us.types);
+                usersInString.Email = Convert.ToString(us.email);
+
+                stringUserList.Add(usersInString);
+            }
+
+            return stringUserList;
+        }
+
         
 
         // #nodelete

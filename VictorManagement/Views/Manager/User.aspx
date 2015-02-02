@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-md-7">
-            <asp:Repeater ID="managerUserRepeater" runat="server">
+            <asp:Repeater ID="UserRepeater" runat="server">
                 <ItemTemplate>
                     <div id="userManager">
                         <b>User Name:</b>

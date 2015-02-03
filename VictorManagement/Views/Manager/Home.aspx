@@ -25,7 +25,7 @@
                     <b>Location: </b>
                     <asp:Label ID="EventLocation" runat="server" Text='<%# Eval("Location") %>'></asp:Label>
                     <br />
-                    <asp:Button Text="Tasks" runat="server" id="taskButton" CommandName="ShowTasks&Teams" CommandArgument='<%# Eval("ID") %>'/>                    
+                    <asp:Button Text="Tasks" runat="server" id="taskButton" CommandName="ShowTasks&Teams" CommandArgument='<%# Eval("ID") %>' />                    
                 </div>
             </ItemTemplate>
             </asp:Repeater>

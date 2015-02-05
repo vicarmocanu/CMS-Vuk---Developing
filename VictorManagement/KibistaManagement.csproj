@@ -63,7 +63,9 @@
     <Content Include="img\nav bar.png" />
     <Content Include="Style\StyleSheet.css" />
     <Content Include="Views\Customer\Home.aspx" />
+    <Content Include="Views\Customer\Verify.aspx" />
     <Content Include="Views\Employee\Home.aspx" />
+    <Content Include="Views\Employee\Verify.aspx" />
     <Content Include="Views\LogIn\Error.aspx" />
     <Content Include="Views\LogIn\LogIn.aspx" />
     <Content Include="Views\Manager\CreateUser.aspx" />
@@ -103,6 +105,13 @@
     <Compile Include="Views\Customer\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Customer\Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employee\EmployeeMaster.Master.cs">
       <DependentUpon>EmployeeMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -117,6 +126,13 @@
     <Compile Include="Views\Employee\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Employee\Verify.aspx.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\Verify.aspx.designer.cs">
+      <DependentUpon>Verify.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\LogIn\Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -130,6 +146,13 @@
     </Compile>
     <Compile Include="Views\LogIn\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogIn\LogIn.Master.cs">
+      <DependentUpon>LogIn.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\LogIn\LogIn.Master.designer.cs">
+      <DependentUpon>LogIn.Master</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>
@@ -183,6 +206,7 @@
     <Content Include="Views\Manager\ManagementMaster.Master" />
     <Content Include="Views\Employee\EmployeeMaster.Master" />
     <Content Include="Views\Customer\CustomerMaster.Master" />
+    <Content Include="Views\LogIn\LogIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

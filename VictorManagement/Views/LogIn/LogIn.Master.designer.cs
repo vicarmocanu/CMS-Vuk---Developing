@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KibistaManagement.Views.Customer {
+namespace KibistaManagement.Views.LogIn {
     
     
-    public partial class CustomerMaster {
+    public partial class LogIn1 {
         
         /// <summary>
         /// head control.

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-md-7">
-            <asp:Repeater ID="UserRepeater" runat="server">
+            <asp:Repeater ID="UserRepeater" runat="server" OnItemCommand="UserRepeater_ItemCommand">
                 <ItemTemplate>
                     <div id="userManager">
                         <b>User Name:</b>
@@ -20,14 +20,13 @@
                         <b>Phone Number:</b>
                         <asp:Label ID="UserPhoneNumber" runat="server" Text='<%# Eval("PhoneNr") %>'></asp:Label>
                         <br />
-                        <br />
-                        <b></b>
-                        <asp:Button ID="updateUser" Text="Update User" runat="server" />
+                        <asp:Button ID="updateUser" Text="Update User" runat="server" CommandName="userUpdate" CommandArgument='<%# Eval("Id") %>'/>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-            <b>Create user:</b>
-            <asp:Button Text="Create" runat="server" ID="createButton" OnClick="createButton_Click"/>
         </div>
+        <div class="col-md-2 col-md-offset-1">
+            <asp:Button Text="Create user" runat="server" ID="createButton" OnClick="createButton_Click"/>
+        </div>          
     </div>
 </asp:Content>

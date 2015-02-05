@@ -10,16 +10,16 @@
 namespace KibistaManagement.Views.Manager {
     
     
-    public partial class CreateUser {
+    public partial class UpdateUser {
         
         /// <summary>
-        /// CreateUserPanel control.
+        /// UserRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CreateUserPanel;
+        protected global::System.Web.UI.WebControls.Repeater UserRepeater;
         
         /// <summary>
         /// txtName control.
@@ -31,15 +31,6 @@ namespace KibistaManagement.Views.Manager {
         protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// nameFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator nameFieldValidator;
-        
-        /// <summary>
         /// txtPassword control.
         /// </summary>
         /// <remarks>
@@ -47,15 +38,6 @@ namespace KibistaManagement.Views.Manager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-        
-        /// <summary>
-        /// passFieldValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator passFieldValidator;
         
         /// <summary>
         /// txtEmail control.
@@ -85,12 +67,12 @@ namespace KibistaManagement.Views.Manager {
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNr;
         
         /// <summary>
-        /// btnCreateUser control.
+        /// updateButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateUser;
+        protected global::System.Web.UI.WebControls.Button updateButton;
     }
 }

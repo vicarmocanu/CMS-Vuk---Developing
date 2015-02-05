@@ -70,7 +70,8 @@ namespace KibistaManagement.Views.Management
             switch(e.CommandName.ToString())
             {
                 case "ShowTasks&Teams":
-                    int eventId = Convert.ToInt32(e.CommandArgument);
+                    int eventId = 0;
+                    eventId = Convert.ToInt32(e.CommandArgument);
                     EventTaskRepeaterDataBinding(taskController.getWantedTasks(eventId));
                     EventTeamRepeaterDataBinding(eventTeamController.getEventTeamMembers(eventId));
                     break;

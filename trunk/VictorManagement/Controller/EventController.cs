@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using KibistaManagement.Model;
+using System.Collections;
 
 namespace KibistaManagement.Controller
 {
@@ -58,6 +59,26 @@ namespace KibistaManagement.Controller
                 }
                 catch (NullReferenceException) { }
             }
+        }
+
+        public Dictionary<int, string> getEventsFor3Days()
+        {
+            Dictionary<int, string>  events = new Dictionary<int, string>();
+
+            using(DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Events.Where(ev => ev.endTime >= DateTime.Now.AddHours(-24) && ev.endTime <= DateTime.Now.AddHours(+24)).ToList();
+                List<Event> eventsList = new List<Event>();
+                eventsList = query;
+
+                foreach(Event ev in eventsList)
+                {
+                    events.Add(ev.id, ev.name);
+                }                
+            }
+
+            return events;
+            
         }
 
         public List<Event> getWeekEvents(DateTime startTime)

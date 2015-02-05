@@ -31,88 +31,56 @@ namespace KibistaManagement.Controller
 
                 db.UserChks.InsertOnSubmit(chkUsr);
                 db.SubmitChanges();
-                
+
             }
         }
 
-        //get the customer check for a particular event and task
-        public UserChk getCustomerChk(int eventId, int taskId)
+        //get the user check for a particular event and task
+        //the user type is specified
+        public List<UserCheckStringConversion> getUserChecks(int eventId, int taskId, String userType)
         {
-            UserChk usrCheck1 = new UserChk();
-
-            using(DataClassesDataContext db = new DataClassesDataContext())
-            {
-                var query = db.UserChks.Where(chk => chk.eventId == eventId && chk.taskId == taskId).ToList();
-                List<UserChk> checks = query;
-
-                foreach(UserChk usChk in checks)
-                {
-                    int userId = 0;
-                    userId = usChk.userId;
-                    User user = new User();
-                    user = db.Users.SingleOrDefault(usr => usr.id == userId);
-                    if(user != null)
-                    {
-                        String types = Convert.ToString(user.types);
-                        if(types.Equals("Customer") == true)
-                        {
-                            usrCheck1 = usChk;
-                        }
-                    }                    
-                }
-            }
-
-            return usrCheck1;            
-        }
-
-        //get the employee check for a particular event and task
-        public UserChk getEmployeeChk(int eventId, int taskId)
-        {
-            UserChk usrCheck2 = new UserChk();
+            List<UserCheckStringConversion> customerChecks = new List<UserCheckStringConversion>();
 
             using (DataClassesDataContext db = new DataClassesDataContext())
             {
                 var query = db.UserChks.Where(chk => chk.eventId == eventId && chk.taskId == taskId).ToList();
-                List<UserChk> checks = query;
+                List<UserChk> allChecks = new List<UserChk>();
+                allChecks = query;
 
-                foreach (UserChk usChk in checks)
+                foreach (UserChk usrChk in allChecks)
                 {
                     int userId = 0;
-                    userId = usChk.userId;
+                    userId = usrChk.userId;
                     User user = new User();
                     user = db.Users.SingleOrDefault(usr => usr.id == userId);
+
                     if (user != null)
                     {
-                        String types = Convert.ToString(user.types);
-                        if (types.Equals("Employee") == true)
+                        String type = "";
+                        type = Convert.ToString(user.types);
+
+                        if (type.Equals(userType) == true)
                         {
-                            usrCheck2 = usChk;
+                            UserCheckStringConversion userCheckString = new UserCheckStringConversion();
+
+                            Task task = new Task();
+                            task = db.Tasks.SingleOrDefault(tsk => tsk.id == taskId);
+                            if (task != null)
+                            {
+                                userCheckString.TaskName = Convert.ToString(task.name);
+                                userCheckString.UserName = Convert.ToString(user.name);
+                                userCheckString.UserType = type;
+                                userCheckString.CheckTime = Convert.ToString(usrChk.userTime);
+                                userCheckString.CheckValue = Convert.ToString(usrChk.userchk1);
+                                userCheckString.Description = Convert.ToString(usrChk.userDescription);
+
+                                customerChecks.Add(userCheckString);
+                            }
                         }
                     }
                 }
             }
-
-            return usrCheck2;            
-        }
-
-        //get the actual check for an entity
-        public bool getTheCheck(UserChk usrChk)
-        {
-            bool check = false;
-
-            check = Convert.ToBoolean(usrChk.userchk1);
-
-            return check;
-        }
-
-        //get the actual desc for am entity
-        public String getTheDesc(UserChk usrChk)
-        {
-            String desc = "";
-
-            desc = Convert.ToString(usrChk.userDescription);
-
-            return desc;
+            return customerChecks;
         }
     }
 }

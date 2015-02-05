@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Model\EventStringConversion.cs" />
     <Compile Include="Model\TaskStringConversion.cs" />
+    <Compile Include="Model\UserCheckStringConversion.cs" />
     <Compile Include="Model\UserStringConversion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Customer\CustomerMaster.Master.cs">

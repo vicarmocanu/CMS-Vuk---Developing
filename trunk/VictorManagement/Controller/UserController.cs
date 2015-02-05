@@ -87,6 +87,26 @@ namespace KibistaManagement.Controller
             return type;
         }
 
+        public UserStringConversion getStringUser (int id)
+        {
+            UserStringConversion stringUser = new UserStringConversion();
+
+            User user = new User();
+            user = getUserById(id);
+
+            if(user != null)
+            {
+                stringUser.Id = Convert.ToString(user.id);
+                stringUser.Name = Convert.ToString(user.name);
+                stringUser.Pass = Convert.ToString(user.pass);
+                stringUser.Email = Convert.ToString(user.email);
+                stringUser.Type = Convert.ToString(user.types);
+                stringUser.PhoneNr = Convert.ToString(user.phoneNr);
+            }
+
+            return stringUser;            
+        }
+
         public List<UserStringConversion> repeaterListGeneration()
         {
             List<UserStringConversion> stringUserList = new List<UserStringConversion>();

@@ -40,5 +40,21 @@ namespace KibistaManagement.Views.Management
         {
             Response.Redirect("~/Views/Manager/CreateUser.aspx");
         }
+
+        protected void UserRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            switch(e.CommandName.ToString())
+            {
+                case "userUpdate":
+                    int userId = 0;
+                    userId = Convert.ToInt32(e.CommandArgument);
+                    Session["userId"]= userId;
+                    Response.Redirect("~/Views/Manager/UpdateUser.aspx");
+                    break;
+                default:
+                    break;
+
+            }
+        }
     }
 }

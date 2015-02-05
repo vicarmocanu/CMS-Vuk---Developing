@@ -71,6 +71,7 @@
     <Content Include="Views\Manager\CreateUser.aspx" />
     <Content Include="Views\Manager\Home.aspx" />
     <Content Include="Views\Manager\Management.aspx" />
+    <Content Include="Views\Manager\UpdateUser.aspx" />
     <Content Include="Views\Manager\User.aspx" />
     <Content Include="Views\Manager\Verify.aspx" />
     <Content Include="Web.config" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="Views\Manager\ManagementMaster.Master.designer.cs">
       <DependentUpon>ManagementMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\UpdateUser.aspx.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\UpdateUser.aspx.designer.cs">
+      <DependentUpon>UpdateUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>

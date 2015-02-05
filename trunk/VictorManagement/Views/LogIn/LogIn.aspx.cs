@@ -33,7 +33,7 @@ namespace KibistaManagement.Views.LogIn
                 {
                     case "Manager":
                         {
-                            Response.Redirect("~/Views/Manager/Management.aspx");
+                            Response.Redirect("~/Views/Manager/Home.aspx");
                             break;
                         }
                     case "Employee":

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerMaster.master.cs" Inherits="KibistaManagement.Views.Customer.CustomerMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LogIn.master.cs" Inherits="KibistaManagement.Views.LogIn.LogIn1" %>
 
 <!DOCTYPE html>
 
@@ -25,13 +25,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <img src="../../img/logo.png" class="img-responsive" style="height:100px; width:100px;"/>
-            </div>
-
-            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
-                <ul class="nav navbar-nav">
-                    <li> <a href="Home.aspx"> Home </a> </li>                    
-                    <li><a href="Verify.aspx">Verify</a> </li>
-                </ul>
             </div>
         </div>
     </nav>

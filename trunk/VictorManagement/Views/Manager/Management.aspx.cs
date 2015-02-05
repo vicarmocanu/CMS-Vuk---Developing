@@ -13,5 +13,20 @@ namespace KibistaManagement.Views.Management
         {
 
         }
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnTaskCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAddTeam_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

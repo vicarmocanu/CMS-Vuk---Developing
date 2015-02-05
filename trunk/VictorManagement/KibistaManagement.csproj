@@ -68,6 +68,8 @@
     <Content Include="Views\Employee\Verify.aspx" />
     <Content Include="Views\LogIn\Error.aspx" />
     <Content Include="Views\LogIn\LogIn.aspx" />
+    <Content Include="Views\Manager\CreateTask.aspx" />
+    <Content Include="Views\Manager\CreateTeam.aspx" />
     <Content Include="Views\Manager\CreateUser.aspx" />
     <Content Include="Views\Manager\Home.aspx" />
     <Content Include="Views\Manager\Management.aspx" />
@@ -154,6 +156,20 @@
     </Compile>
     <Compile Include="Views\LogIn\LogIn.Master.designer.cs">
       <DependentUpon>LogIn.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\CreateTask.aspx.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\CreateTask.aspx.designer.cs">
+      <DependentUpon>CreateTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\CreateTeam.aspx.cs">
+      <DependentUpon>CreateTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Manager\CreateTeam.aspx.designer.cs">
+      <DependentUpon>CreateTeam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>

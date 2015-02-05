@@ -120,5 +120,17 @@ namespace KibistaManagement.Controller
             return stringEventsList;
         }
 
+        public int getMaxEventId()
+        {
+            int max = 0;
+
+            using(DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Events.OrderByDescending(e => e.id).FirstOrDefault().id;
+                max = Convert.ToInt32(query);
+            }
+
+            return max;
+        }
     }
 }

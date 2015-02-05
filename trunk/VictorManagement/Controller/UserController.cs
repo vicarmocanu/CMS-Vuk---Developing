@@ -20,6 +20,7 @@ namespace KibistaManagement.Controller
                 user.phoneNr = phoneNr;
                 user.email = email;
                 user.types = types;
+                user.phoneNr = phoneNr;
 
                 db.Users.InsertOnSubmit(user);
                 db.SubmitChanges();
@@ -53,6 +54,7 @@ namespace KibistaManagement.Controller
                         user.pass = pass;
                         user.email = email;
                         user.types = types;
+                        user.phoneNr = phoneNr;
 
                         db.SubmitChanges();
                     }

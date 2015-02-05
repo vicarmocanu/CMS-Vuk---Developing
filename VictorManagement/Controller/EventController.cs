@@ -119,5 +119,6 @@ namespace KibistaManagement.Controller
 
             return stringEventsList;
         }
+
     }
 }

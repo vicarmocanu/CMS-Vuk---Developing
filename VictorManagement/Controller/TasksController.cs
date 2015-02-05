@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using KibistaManagement.Model;
+using System.Collections;
 
 namespace KibistaManagement.Controller
 {
@@ -120,5 +121,23 @@ namespace KibistaManagement.Controller
             return stringTaskList;
         }
 
+        public Dictionary<int, string> getEventTasks_Dictionary(int eventId)
+        {
+            Dictionary<int, string> eventTasks = new Dictionary<int, string>();
+
+            using (DataClassesDataContext db = new DataClassesDataContext())
+            {
+                var query = db.Tasks.Where(tsk => tsk.eventId == eventId).ToList();
+                List<Task> tasks = new List<Task>();
+                tasks = query;
+
+                foreach(Task task in tasks)
+                {
+                    eventTasks.Add(task.id, task.name);
+                }
+            }
+
+            return eventTasks;
+        }
     }
 }

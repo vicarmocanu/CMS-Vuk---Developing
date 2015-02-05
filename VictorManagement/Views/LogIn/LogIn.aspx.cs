@@ -28,19 +28,30 @@ namespace KibistaManagement.Views.LogIn
             usr = usrCtr.getUserByEmail(emailValue);
             if (usr != null)
             {
-                typeValue = usrCtr.getUserTypes(usr);
-                if (typeValue.Equals("Manager") && usr.pass.Equals(txtPassword.Text.ToString()))
+                typeValue = Convert.ToString(usrCtr.getUserTypes(usr));
+                switch (typeValue)
                 {
-                    Response.Redirect("~/Views/Manager/Home.aspx");
+                    case "Manager":
+                        {
+                            Response.Redirect("~/Views/Manager/Management.aspx");
+                            break;
+                        }
+                    case "Employee":
+                        {
+                            Response.Redirect("~/Views/Employee/Home.aspx");
+                            break;
+                        }
+                    case "Customer":
+                        {
+                            Response.Redirect("~/Views/Customer/Home.aspx");
+                            break;
+                        }
+                    default:
+                        {
+                            Response.Redirect("~/Views/LogIn/Error.aspx");
+                            break;
+                        }
                 }
-                else
-                {
-                    Response.Redirect("~/Views/LogIn/Error.aspx");
-                }
-            }
-            else
-            {
-                Response.Redirect("~/Views/LogIn/Error.aspx");
             }
         }
     }

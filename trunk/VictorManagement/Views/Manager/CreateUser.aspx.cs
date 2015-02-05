@@ -28,6 +28,7 @@ namespace KibistaManagement.Views.Manager
 
                 userCtr.insertUser(name, pass, email, type, phoneNr);
                 Response.Redirect("~/Views/Manager/User.aspx");
+
                 
             }
             catch(NullReferenceException)

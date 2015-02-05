@@ -23,7 +23,7 @@ namespace KibistaManagement.Views.Manager
                 string name = Convert.ToString(txtName.Text);
                 string pass = Convert.ToString(txtPassword.Text);
                 string email = Convert.ToString(txtEmail.Text);
-                string type = Convert.ToString(txtType.Text);
+                string type = Convert.ToString(typesDropdown.SelectedItem.Text);
                 string phoneNr = Convert.ToString(txtPhoneNr.Text);
 
                 userCtr.insertUser(name, pass, email, type, phoneNr);

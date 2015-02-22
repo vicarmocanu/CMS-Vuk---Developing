@@ -27,12 +27,12 @@ namespace KibistaManagement.Controller
             }
         }
 
-        public Event getEvent(String name)
+        public Event getEvent(int eventId)
         {
             Event eve = new Event();
             using (DataClassesDataContext db = new DataClassesDataContext())
             {
-                eve = db.Events.SingleOrDefault(ev => ev.name.Equals(name));
+                eve = db.Events.SingleOrDefault(ev => ev.id == eventId);
             }
 
             return eve;

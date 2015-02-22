@@ -39,10 +39,12 @@
                 <asp:Label runat="server" Text="Has this particular task been completed?"></asp:Label>
                 <br />
                 <asp:Label runat="server" Text="Yes"></asp:Label>
-                <asp:CheckBox runat="server" ID="yesCheck" OnCheckedChanged="yesCheck_CheckedChanged"/>
+                <asp:CheckBox runat="server" ID="yesCheck"/>
                 <br />
                 <asp:Label runat="server" Text="No"></asp:Label>
-                <asp:CheckBox runat="server" ID="noCheck" OnCheckedChanged="noCheck_CheckedChanged"/>
+                <asp:CheckBox runat="server" ID="noCheck"/>
+                <br />
+                <asp:Label runat="server" Text="Only one check at a time" ForeColor="Red" Visible ="false" ID="twoChecks"></asp:Label>
                 <br />
                 <asp:Label runat="server" Text="Your comment:"></asp:Label>
                 <br />

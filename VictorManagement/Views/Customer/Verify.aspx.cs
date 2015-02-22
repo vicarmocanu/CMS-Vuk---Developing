@@ -102,37 +102,37 @@ namespace KibistaManagement.Views.Customer
             int eventId = Convert.ToInt32(eventsList.SelectedValue);
             int taskId = Convert.ToInt32(tasksList.SelectedValue);
             String comment = this.userCommentTextBox.Text.ToString();
-            if(yesCheck.Checked == true)
+            if (yesCheck.Checked == true && noCheck.Checked == true)
             {
-                userCheckController.createUserChk(eventId, taskId, 1, DateTime.Now, comment, true); //vezi ca 1 acolo trebuie schimbat sa fie dinamic
-                this.warningCheck.Visible = false;
-                this.tasksList.Items.Clear();
-                consistency();
+                this.twoChecks.Visible = true;
             }
             else
             {
-                if(noCheck.Checked == true)
+                if (yesCheck.Checked == true)
                 {
-                    userCheckController.createUserChk(eventId, taskId, 1, DateTime.Now, comment, false); //vezi ca 1 acolo trebuie schimbat sa fie dinamic
+                    userCheckController.createUserChk(eventId, taskId, 1, DateTime.Now, comment, true); //vezi ca 1 acolo trebuie schimbat sa fie dinamic
+                    this.twoChecks.Visible = false;
                     this.warningCheck.Visible = false;
                     this.tasksList.Items.Clear();
                     consistency();
                 }
                 else
                 {
-                    this.warningCheck.Visible = true;
+                    if (noCheck.Checked == true)
+                    {
+                        userCheckController.createUserChk(eventId, taskId, 1, DateTime.Now, comment, false); //vezi ca 1 acolo trebuie schimbat sa fie dinamic
+                        this.twoChecks.Visible = false;
+                        this.warningCheck.Visible = false;
+                        this.tasksList.Items.Clear();
+                        consistency();
+                    }
+                    else
+                    {
+                        this.twoChecks.Visible = false;
+                        this.warningCheck.Visible = true;
+                    }
                 }
-            }            
-        }
-
-        protected void yesCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            this.noCheck.Checked = false;
-        }
-
-        protected void noCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            this.yesCheck.Checked = false;
+            }                        
         }
     }
 }

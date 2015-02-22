@@ -23,28 +23,58 @@ namespace KibistaManagement.Views.LogIn
         {
             String typeValue = "";
             String emailValue = "";
+            String pass = "";
             emailValue = txtEmail.Text.ToString();
+            pass = txtPassword.Text.ToString();
+
             User usr = new User();
             usr = usrCtr.getUserByEmail(emailValue);
+
             if (usr != null)
             {
                 typeValue = Convert.ToString(usrCtr.getUserTypes(usr));
+                String realPass = usr.pass;
+                
                 switch (typeValue)
                 {
                     case "Manager":
                         {
-                            Response.Redirect("~/Views/Manager/Home.aspx");
-                            break;
+                            if (pass.Equals(realPass) == true)
+                            {
+                                Response.Redirect("~/Views/Manager/Home.aspx");
+                                break;
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Views/LogIn/Error.aspx");
+                                break;
+                            }
                         }
                     case "Employee":
                         {
-                            Response.Redirect("~/Views/Employee/Home.aspx");
-                            break;
+                            if (pass.Equals(realPass) == true)
+                            {
+                                Response.Redirect("~/Views/Employee/Home.aspx");
+                                break;
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Views/LogIn/Error.aspx");
+                                break;
+                            }
                         }
                     case "Customer":
                         {
-                            Response.Redirect("~/Views/Customer/Home.aspx");
-                            break;
+                            if (pass.Equals(realPass) == true)
+                            {
+                                Response.Redirect("~/Views/Customer/Home.aspx");
+                                break;
+                            }
+                            else
+                            {
+                                Response.Redirect("~/Views/LogIn/Error.aspx");
+                                break;
+                            }
                         }
                     default:
                         {

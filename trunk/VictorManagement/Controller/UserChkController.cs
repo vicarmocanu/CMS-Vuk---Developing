@@ -14,13 +14,6 @@ namespace KibistaManagement.Controller
             using (DataClassesDataContext db = new DataClassesDataContext())
             {
                 UserChk chkUsr = new UserChk();
-                Event evt = new Event();
-                Task tsk = new Task();
-                User usr = new User();
-
-                evt = db.Events.Where(e => e.id == eventId).FirstOrDefault();
-                tsk = db.Tasks.Where(t => t.id == taskId).FirstOrDefault();
-                usr = db.Users.Where(u => u.id == userId).FirstOrDefault();
 
                 chkUsr.eventId = eventId;
                 chkUsr.taskId = taskId;
@@ -81,6 +74,25 @@ namespace KibistaManagement.Controller
                 }
             }
             return customerChecks;
+        }
+
+        public Dictionary<int, string> getUncheckedEventTasks(int eventId, int userId)
+        {
+            Dictionary<int, string> eventTasks = new Dictionary<int, string>();
+
+            using(DataClassesDataContext db=new DataClassesDataContext())
+            {
+                var query = db.Tasks.Where(tsk => tsk.eventId == eventId && !db.UserChks.Where(usrChk => usrChk.taskId == tsk.id && usrChk.userId == userId).Any()).ToList();
+                List<Task> tasks = new List<Task>();
+                tasks = query;
+
+                foreach(Task task in tasks)
+                {
+                    eventTasks.Add(task.id, task.name);
+                }
+            }
+
+            return eventTasks;
         }
     }
 }
